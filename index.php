@@ -30,7 +30,7 @@ return [
 	'routes' => [
 
         '@emailcloak' => [
-            //'name' => '@emailcloak',
+            'name' => '@emailcloak',
 			'path' => '/emailcloak',
             'controller' => 'Friendlyit\\Emailcloak\\Controller\\EmailcloakController'
         ]
@@ -47,7 +47,7 @@ return [
 
 	
 	'config' => [
-			'mode'    => 'PLG_CONTENT_EMAILCLOAK_LINKABLE'
+			'mode'    => '1'
     ],
 
     'menu' => [

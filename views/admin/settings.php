@@ -33,17 +33,18 @@
                         </div>
 
                     </div>
+					<div class="uk-form-row">
+					{{'Cloaks all email addresses in content from spambots using JavaScript.' | trans}}
+					</div>
 					<hr class="uk-article-divider">
 
 					<div class="uk-form-controls-condensed">
 						<div class="uk-form-row">
-							<span class="uk-form-label" data-uk-tooltip="{pos:'bottom-right', delay : '500' , animation : 'true'}" title="{{'Cloaks all email addresses in content from spambots using JavaScript.' | trans}}">{{'Select how email addresses will be displayed.' | trans}}</span>
-							
-							<span class="uk-form-label">{{'Mode' | trans}}</span>
+							<span class="uk-form-label" data-uk-tooltip="{pos:'bottom-right', delay : '500' , animation : 'true'}" title="{{'Select how email addresses will be displayed.' | trans}}">{{'Mode' | trans}}</span>
 								<div class="uk-form-controls uk-form-controls-text">
 									<select name="Pizza" v-model="config.mode">
-										<option value="PLG_CONTENT_EMAILCLOAK_NONLINKABLE">{{'Non-linkable Text' | trans}}</option>
-										<option value="PLG_CONTENT_EMAILCLOAK_LINKABLE">{{'As linkable mailto address' | trans}}</option>
+										<option value="0">{{'Non-linkable Text' | trans}}</option>
+										<option value="1">{{'As linkable mailto address' | trans}}</option>
 						
 									</select>
 								</div>
