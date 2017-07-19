@@ -129,6 +129,9 @@ class EmailCloakPlugin implements EventSubscriberInterface
 		// Any Image link
 		$searchImage = '(<img[^>]+>)';
 
+		// Any Class link
+		//$searchClass = '(<class[^>]+>)';
+		
 		// Any Text with <span or <strong
 		$searchTextSpan = '(<span[^>]+>|<span>|<strong>|<strong><span[^>]+>|<strong><span>)' . $searchText . '(</span>|</strong>|</span></strong>)';
 
@@ -483,6 +486,28 @@ class EmailCloakPlugin implements EventSubscriberInterface
 			$text = substr_replace($text, $replacement, $regs[0][1], strlen($regs[0][0]));
 		}
 
+		/*
+		 * Search for derivatives of link code <a href="mailto:email@example.org">
+		 * Nonetext</a>
+		 */
+		$pattern = $this->_getPattern($searchEmail, '');
+
+		while (preg_match($pattern, $text, $regs, PREG_OFFSET_CAPTURE))
+		{
+			$mail = $regs[2][0];
+			$mailText = '';//addslashes($regs[4][0]);
+
+			$replacement = PHtmlEmail::cloak($mail, $mode, ' ', 0);
+			
+
+			// Ensure that attributes is not stripped out by email cloaking
+			$replacement = $this->_addAttributesToEmail($replacement, $regs[1][0], $regs[3][0]);
+
+			// Replace the found address with the js cloaked email
+			$text = substr_replace($text, $replacement, $regs[0][1], strlen($regs[0][0]));
+		}
+		
+		
 		/*
 		 * Search for plain text email addresses, such as email@example.org but not within HTML tags:
 		 * <img src="..." title="email@example.org"> or <input type="text" placeholder="email@example.org">
