@@ -487,8 +487,8 @@ class EmailCloakPlugin implements EventSubscriberInterface
 		}
 
 		/*
-		 * Search for derivatives of link code <a href="mailto:email@example.org">
-		 * Nonetext</a>
+		 * Search for derivatives of link code <a href="mailto:email@example.org">BlankText</a>
+		 * 
 		 */
 		$pattern = $this->_getPattern($searchEmail, '');
 

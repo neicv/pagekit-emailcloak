@@ -1,5 +1,5 @@
 #  Emailcloak
-This is a simple Plugin for <a href="https://pagekit.com">Pagekit</a> based on the Joomla 3.x emailclok plugin.
+This is a simple Plugin for <a href="https://pagekit.com">Pagekit</a> based on the Joomla 3.x emailcloak plugin.
 Email addresses are made un-readable to the bots by 'assembling' them via JavaScript when the page is loaded.
 
 This Plugin cloaks all e-mails in content from spambots using JavaScript. This helps prevent e-mails contained in articles from being added to spam e-mail lists. You can disable Email Cloaking inside an article by inserting {emailcloak=off} anywhere in the text of the article. In this case, no e-mail addresses in the article will be cloaked by this Plugin.

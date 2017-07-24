@@ -17,21 +17,11 @@ return [
         // bootstrap code
     },
 
-	'nodes' => [
-
-        /* 'emailcloak' => [
-			'name' => '@emailcloak',
-            'label' => 'Emailcloak',
-            'controller' => 'Friendlyit\\Emailcloak\\Controller\\SiteController',
-            'protected' => true
-        ] */
-    ],
-
 	'routes' => [
 
-        '@emailcloak' => [
-            'name' => '@emailcloak',
-			'path' => '/emailcloak',
+        '/emailcloak' => [
+            'name' => '@emailcloak/admin',
+			//'path' => '/emailcloak',
             'controller' => 'Friendlyit\\Emailcloak\\Controller\\EmailcloakController'
         ]
 
@@ -41,7 +31,6 @@ return [
 	'resources' => [
 
 		'friendlyit/emailcloak:' => ''
-		//'views:friendlyit/emailcloak' => 'views'
 
 	],
 
@@ -54,28 +43,21 @@ return [
 
         'emailcloak' => [
             'label'  => 'Emailcloak',
-            'icon'   => 'friendlyit/emailcloak:icon.svg',
-            'url'    => '@emailcloak',
+			'icon'   => 'friendlyit/emailcloak:icon.svg',
+			'active' => '@emailcloak/admin',
+            'url'    => '@emailcloak/admin',
         ],
 
         'emailcloak: settings' => [
 			'label' => 'Settings',
             'parent' => 'emailcloak',
-            'url' => '@emailcloak/settings',
-			'active' => '@emailcloak/settings*',
-            'access' => 'system: manage settings'
+            'url' => '@emailcloak/admin/settings',
+			'active' => '@emailcloak/admin/settings*',
+			'access' => 'system: access settings'
         ]
-    ],
-
-    'permissions' => [
-
-		'emailcloak: manage settings' => [
-            'title' => 'Manage settings'
-        ]
-
     ],
 	
-	//'settings' => '@emailcloak/admin/settings',
+	'settings' => '@emailcloak/admin/settings',
 	 
 	'events' => [
 
@@ -83,11 +65,10 @@ return [
             $app->subscribe(
                 new EmailCloakPlugin
             );
-        }
-/* 		'view.scripts' => function ($event, $scripts) use ($app) {
-            $scripts->register('uikit-search', 'app/assets/uikit/js/components/search.min.js', 'uikit');
-            $scripts->register('uikit-autocomplete', 'app/assets/uikit/js/components/autocomplete.min.js', 'uikit');
-        } */
+        },
+		'view.scripts' => function ($event, $scripts) {
+            $scripts->register('emailcloak-settings', 'friendlyit/emailcloak:/app/bundle/settings.js', '~extensions');
+        },
 
     ]
 
