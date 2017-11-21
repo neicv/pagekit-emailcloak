@@ -22,7 +22,7 @@ class EmailCloakPlugin implements EventSubscriberInterface
     * @var integer
     */
 	
-    protected $params;
+    //protected $params;
 	
 	/**
     * Constructor.
@@ -30,7 +30,7 @@ class EmailCloakPlugin implements EventSubscriberInterface
     */
     public function __construct()
     {
-        $this->params = $this->getIfSet(App::module('friendlyit/emailcloak')->config('mode'));
+		 $this->emailcloak = App::module('friendlyit/emailcloak');
     }
 	
 	
@@ -41,7 +41,9 @@ class EmailCloakPlugin implements EventSubscriberInterface
      */
     public function onContentPlugins(ContentEvent $event)
     {
-		$params 	= $this->params;
+		if (!$params = $this->emailcloak->config('mode')) {
+            $psrams = 1;
+        }
 		$content 	= $event->getContent();
 		$event->setContent($this->_cloak($content, $params));
     }
