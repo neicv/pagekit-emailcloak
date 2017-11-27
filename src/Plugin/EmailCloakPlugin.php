@@ -19,10 +19,10 @@ class EmailCloakPlugin implements EventSubscriberInterface
 	/**
 	* EmailcloakExtension parameters
 	*
-    * @var integer
+    * @var Module
     */
 	
-    //protected $params;
+    protected $emailcloak;
 	
 	/**
     * Constructor.

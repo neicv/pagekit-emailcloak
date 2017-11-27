@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.4 (Nov 28, 2017)
+
+### Fixed
+- Fixed crash error on Apple Mac OS WebServer
+
+## 0.1.3 (Nov 21, 2017)
+
+### Fixed
+- Fixed installation error on some system PHP 7.1
+
 ## 0.1.2 (July 25, 2017)
 
 ### Fixed

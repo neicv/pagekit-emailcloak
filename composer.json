@@ -2,7 +2,7 @@
     "name": "friendlyit/emailcloak",
 	"module": "friendlyit/emailcloak",
 	"type": "pagekit-extension",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "title": "Emailcloak",
     "description": "Email addresses are made un-readable to the bots.",
     "license": "MIT",

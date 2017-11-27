@@ -8,11 +8,8 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
-//defined('JPATH_PLATFORM') or die;
-
 namespace Friendlyit\Emailcloak\Helpers\email;
 use Friendlyit\Emailcloak\Helpers\idna_convert\idna_convert;
-use Pagekit\Application as App;
 
 /**
  * Utility class for cloaking email addresses
@@ -107,7 +104,7 @@ abstract class PHtmlEmail
 		// TODO: Use inline script for now
 		$inlineScript = "<script type='text/javascript'>" . $script . "</script>";
 
-		return '<span id="cloak' . $rand . '">' . _('This email address is being protected from spambots. You need JavaScript enabled to view it.') . '</span>' . $inlineScript;
+		return '<span id="cloak' . $rand . '">' . __('This email address is being protected from spambots. You need JavaScript enabled to view it.') . '</span>' . $inlineScript;
 	}
 
 	/**
