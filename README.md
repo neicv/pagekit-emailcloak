@@ -6,7 +6,7 @@ This Plugin cloaks all e-mails in content from spambots using JavaScript. This h
 
 Email Cloaking has the following parameter:
 
-![image](http://search.friendly-it.ru/storage/image.jpg)
+![image](https://pagekit.friendly-it.ru/storage/img/image.jpg)
 * ## Mode. 
 How the e-mails will be displayed. Options are "As linkable mailto address" or as "Non-Linkable text".
 
